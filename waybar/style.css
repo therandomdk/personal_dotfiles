@@ -1,0 +1,210 @@
+/* -- Global rules -- */
+* {
+  border: none;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12px;
+  min-height: 0px; /* Changed from 10px to allow smaller slider elements */
+}
+
+window#waybar {
+  background: rgba(26, 26, 26, 0.6);
+}
+
+window#waybar.hidden {
+  opacity: 0.4;
+}
+
+/* - General rules for visible modules -- */
+#custom-archicon,
+#clock,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#custom-custom1,
+#custom-custom2,
+#idle_inhibitor,
+#battery,
+#pulseaudio,
+#pulseaudio-slider,
+#network,
+#custom-power,
+#language,
+#tray {
+  color: #FFFFFF;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 1px;
+  margin-right: 1px;
+  padding-left: 7px;
+  padding-right: 7px;
+  transition: none;
+  border-radius: 4px;
+}
+
+/* --- Added Slider Styling --- */
+scale trough {
+  min-height: 4px;
+  background-color: #333333;
+  border-radius: 5px;
+}
+
+scale slider {
+  min-height: 8px;
+  min-width: 8px;
+  margin: -2px 0;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: none;
+}
+/* ---------------------------- */
+
+/* Specific edge spacing */
+#custom-archicon {
+  margin-left: 3px;
+}
+
+#clock,
+#temperature,
+#custom-custom2,
+#language {
+  margin-right: 5px;
+}
+
+/* -- Specific styles -- */
+
+/* Modules left */
+#custom-archicon {
+  font-size: 10px;
+  color: #FFFFFF;
+  background: #242424;
+  padding-right: 3px;
+  padding-left: 4px;
+}
+
+#clock, #cpu, #memory, #disk, #temperature {
+  background: #242424;
+}
+
+/* Style for the new Performance/Power buttons */
+#custom-custom1, #custom-custom2 {
+  background: #242424;
+}
+
+/* Modules center */
+#workspaces {
+  background: rgba(0, 0, 0, 0.5);
+  margin: 5px 4px;
+  padding: 0px 6px;
+  border-radius: 5px;
+}
+
+#workspaces button {
+  color: #242424;
+  background: transparent;
+  padding: 4px 4px;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#workspaces button.occupied {
+  color: #242424;
+}
+
+#workspaces button.active {
+  color: #242424;
+  text-shadow: 0 0 4px #242424;
+}
+
+/* Modules right */
+#taskbar {
+  background: transparent;
+  padding: 0px 3px;
+  margin: 6px 3px;
+  border-radius: 5px;
+}
+
+#taskbar button {
+  padding: 0px 7px;
+  margin: 0px 1px;
+  transition: background 0.3s ease;
+  border-radius: 5px;
+}
+
+#taskbar button.active, #taskbar button:hover {
+  background: rgba(34, 36, 54, 0.5);
+}
+
+#idle_inhibitor {
+  background: #242424;
+  padding-right: 9px;
+}
+
+#battery {
+  background: #242424;
+}
+
+#battery.warning {
+  color: #FFCC00;
+}
+
+#battery.critical {
+  color: #FF5555;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#pulseaudio {
+  min-width: 37px;
+  color: #FFFFFF;
+  background: #242424;
+}
+
+#pulseaudio-slider {
+  color: #1A1826;
+  background: #242424;
+  min-width: 150px;
+}
+
+#network {
+  background: #242424;
+  padding-right: 20px;
+}
+
+#language {
+  background: #242424;
+  padding-right: 15px;
+}
+
+#custom-power {
+  background: #242424;
+  color: #FFFFFF;
+  margin-right: 2px;
+}
+
+/* Specific tray style */
+#tray {
+  background: #242424;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* === Optional animation === */
+@keyframes blink {
+  from {
+    background-color: #242424;
+    color: #FF5555;
+  }
+  to {
+    background-color: #FF5555;
+    color: #FFFFFF;
+  }
+}
