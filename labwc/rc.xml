@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<labwc_config>
+  <core>
+    <decoration>server</decoration>
+    <maximizedDecoration>titlebar</maximizedDecoration>
+    <gap>0</gap>
+    <adaptiveSync>no</adaptiveSync>
+    <allowTearing>no</allowTearing>
+    <autoEnableOutputs>yes</autoEnableOutputs>
+    <primarySelection>yes</primarySelection>
+    <xwaylandPersistence>no</xwaylandPersistence>
+  </core>
+  <theme>
+    <name>Arc-Clone</name>
+    <icon>Papirus-Dark</icon>
+    <font name="Roboto" size="10"/>
+    <cornerRadius>6</cornerRadius>
+    <dropShadows>yes</dropShadows>
+  </theme>
+  <focus>
+    <followMouse>no</followMouse>
+    <followMouseRequiresMovement>yes</followMouseRequiresMovement>
+  </focus>
+  <placement>
+    <policy>automatic</policy>
+  </placement>
+  <libinput>
+    <!-- Hardware Specific Settings -->
+    <device name="ELAN0524:00 04F3:3215 Touchpad">
+      <naturalScroll>yes</naturalScroll>
+      <accelProfile>flat</accelProfile>
+      <scrollFactor>0.9</scrollFactor>
+      <tap>yes</tap>
+      <tapButtonMap>lrm</tapButtonMap>
+      <disableWhileTyping>yes</disableWhileTyping>
+    </device>
+    <device name="YICHIP Wireless Device Mouse">
+      <naturalScroll>yes</naturalScroll>
+      <accelProfile>flat</accelProfile>
+    </device>
+    <device name="ELAN0524:00 04F3:3215 Mouse">
+      <naturalScroll>yes</naturalScroll>
+    </device>
+  </libinput>
+  <keyboard>
+    <default/>
+    <!-- Launchers & Essential Apps -->
+    <keybind key="Super_L" onRelease="yes">
+      <action name="Execute" command="nwg-menu -va top -ha left"/>
+    </keybind>
+    <keybind key="W-Return">
+      <action name="Execute" command="gnome-terminal"/>
+    </keybind>
+    <keybind key="W-e">
+      <action name="Execute" command="thunar"/>
+    </keybind>
+    <keybind key="W-f">
+      <action name="Execute" command="firefox"/>
+    </keybind>
+    <keybind key="W-x">
+      <action name="Execute" command="~/.config/rofi/powermenu/powermenu.sh"/>
+    </keybind>
+    <!-- Window Management -->
+    <keybind key="W-q">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="A-F4">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="f11">
+      <action name="ToggleFullscreen"/>
+    </keybind>
+    <keybind key="W-Up">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="W-c">
+      <action name="Reconfigure"/>
+    </keybind>
+    <keybind key="A-Tab">
+      <action name="NextWindow"/>
+    </keybind>
+    <keybind key="A-S-Tab">
+      <action name="PreviousWindow"/>
+    </keybind>
+    <!-- Snapping -->
+    <keybind key="W-Left">
+      <action name="SnapToEdge" direction="left"/>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="SnapToEdge" direction="right"/>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="SnapToEdge" direction="down"/>
+    </keybind>
+    <!-- Workspaces -->
+    <keybind key="W-1">
+      <action name="GoToDesktop" to="1"/>
+    </keybind>
+    <keybind key="W-2">
+      <action name="GoToDesktop" to="2"/>
+    </keybind>
+    <keybind key="W-3">
+      <action name="GoToDesktop" to="3"/>
+    </keybind>
+    <keybind key="W-4">
+      <action name="GoToDesktop" to="4"/>
+    </keybind>
+    <keybind key="W-5">
+      <action name="GoToDesktop" to="5"/>
+    </keybind>
+    <keybind key="W-S-1">
+      <action name="SendToDesktop" to="1"/>
+    </keybind>
+    <keybind key="W-S-2">
+      <action name="SendToDesktop" to="2"/>
+    </keybind>
+    <keybind key="W-S-3">
+      <action name="SendToDesktop" to="3"/>
+    </keybind>
+    <keybind key="W-S-4">
+      <action name="SendToDesktop" to="4"/>
+    </keybind>
+    <keybind key="W-S-5">
+      <action name="SendToDesktop" to="5"/>
+    </keybind>
+    <!-- Multimedia (PulseAudio/pactl) -->
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute" command="pactl set-sink-volume @DEFAULT_SINK@ +4%"/>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute" command="pactl set-sink-volume @DEFAULT_SINK@ -4%"/>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute" command="pactl set-sink-mute @DEFAULT_SINK@ toggle"/>
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute" command="brightnessctl set +4%"/>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute" command="brightnessctl set 4%-"/>
+    </keybind>
+    <!-- Screenshots -->
+    <keybind key="Print">
+      <action name="Execute" command="sh -c 'grim ~/Pictures/Screenshots/0P-$(date +%y%m%d-%H-%m-%s).png'" />
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute" command="sh -c 'grim -g &quot;$(slurp)&quot; ~/Pictures/Screenshots/0S-$(date +%y%m%d-%H-%m-%s).png'" />
+    </keybind>
+    <numlock>on</numlock>
+  </keyboard>
+  <mouse>
+    <default/>
+    <context name="Root">
+      <mousebind button="Right" action="Press">
+        <action name="ShowMenu" menu="root-menu"/>
+      </mousebind>
+    </context>
+  </mouse>
+  <desktops number="5">
+    <names>
+      <name>1</name>
+      <name>2</name>
+      <name>3</name>
+      <name>4</name>
+      <name>5</name>
+    </names>
+  </desktops>
+  <windowRules>
+    <windowRule title="Attention">
+      <action name="ToggleAlwaysOnTop"/>
+    </windowRule>
+  </windowRules>
+</labwc_config>

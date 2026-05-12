@@ -1,0 +1,11 @@
+sleep 2 && waybar &
+dbus-update-activation-environment --all &
+xsettingsd &
+/usr/libexec/gsd-xsettings &
+nm-applet --indicator &
+blueman-applet &
+swaync &
+
+Brightnessctl set 70% &
+swayidle -w timeout 300 'swaylock -f' &
+~/.azotebg &

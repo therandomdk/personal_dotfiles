@@ -1,0 +1,25 @@
+# --- Input & Region ---
+export XKB_DEFAULT_LAYOUT=us
+export LANG=en_IN.UTF-8
+
+# --- Cursor ---
+
+# --- Toolkit & Desktop Identity ---
+export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=qt6ct
+export GDK_BACKEND=wayland,x11
+export GTK_THEME=Adwaita:dark
+export XDG_CURRENT_DESKTOP=labwc
+export XDG_SESSION_TYPE=wayland
+export XDG_MENU_PREFIX=arch-
+
+# --- Application Specific ---
+export MOZ_ENABLE_WAYLAND=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# --- Performance ---
+export WLR_RENDER=vulkan
+
+# --- Optional Debugging ---
+XCURSOR_THEME=Bibata-Modern-Ice
+XCURSOR_SIZE=19
