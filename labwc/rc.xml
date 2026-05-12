@@ -141,10 +141,10 @@
     </keybind>
     <!-- Screenshots -->
     <keybind key="Print">
-      <action name="Execute" command="sh -c 'grim ~/Pictures/Screenshots/0P-$(date +%y%m%d-%H-%m-%s).png'" />
+      <action name="Execute" command="sh -c 'grimshot save screen /home/ndoan/Pictures/$(date +%Y_%m_%d_%H%M%S).png | wl-copy'"/>
     </keybind>
     <keybind key="S-Print">
-      <action name="Execute" command="sh -c 'grim -g &quot;$(slurp)&quot; ~/Pictures/Screenshots/0S-$(date +%y%m%d-%H-%m-%s).png'" />
+      <action name="Execute" command="sh -c 'grimshot save area /home/ndoan/Pictures/$(date +%Y_%m_%d_%H%M%S).png | wl-copy'"/>
     </keybind>
     <numlock>on</numlock>
   </keyboard>

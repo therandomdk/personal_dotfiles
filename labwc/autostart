@@ -9,3 +9,5 @@ swaync &
 Brightnessctl set 70% &
 swayidle -w timeout 300 'swaylock -f' &
 ~/.azotebg &
+
+
