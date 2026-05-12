@@ -1,0 +1,72 @@
+window {
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 13px;
+    /* Added padding to prevent content from touching window edges */
+    padding: 8px;
+}
+
+list {
+    background: none;
+    border-radius: 5px;
+    /* Reduced border width to avoid a bulky look */
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    margin-right: 10px;
+}
+
+entry {
+    background-color: rgba(26, 26, 26, 0.9);
+    border-radius: 14px;
+    /* Added internal spacing for text */
+    padding: 4px 10px;
+    border: 1px solid transparent;
+}
+
+button {
+    background: none;
+    border: none;
+    min-height: 31px;
+    padding: 2px 4px;
+    /* Ensured radius is consistent here */
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgba(54, 60, 89, 0.8);
+}
+
+/* Consolidated transition to one block with a natural speed */
+button, flowboxchild {
+    transition: background-color 150ms ease-in-out;
+}
+
+flowboxchild {
+    border-radius: 10px;
+}
+
+flowboxchild:hover {
+    background-color: rgba(54, 60, 89, 0.8);
+    padding: 1px;
+}
+
+flowboxchild:selected {
+    background-color: rgba(73, 77, 100, 0.9);
+}
+
+entry:focus {
+    border: 1px solid #494d64;
+    background-color: #252525;
+}
+
+scrollbar slider {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    min-width: 4px;
+}
+
+/* Added active state for physical click feedback */
+button:active, flowboxchild:active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
