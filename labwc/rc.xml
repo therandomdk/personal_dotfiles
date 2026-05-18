@@ -51,14 +51,14 @@
     <keybind key="W-Return">
       <action name="Execute" command="gnome-terminal"/>
     </keybind>
-    <keybind key="W-e">
+    <keybind key="W-t">
       <action name="Execute" command="thunar"/>
     </keybind>
-    <keybind key="W-f">
-      <action name="Execute" command="firefox"/>
+    <keybind key="W-c">
+      <action name="Execute" command="thorium-browser"/>
     </keybind>
     <keybind key="W-x">
-      <action name="Execute" command="~/.config/rofi/powermenu/powermenu.sh"/>
+      <action name="Execute" command="wlogout"/>
     </keybind>
     <!-- Window Management -->
     <keybind key="W-q">
@@ -73,7 +73,7 @@
     <keybind key="W-Up">
       <action name="ToggleMaximize"/>
     </keybind>
-    <keybind key="W-c">
+    <keybind key="W-r">
       <action name="Reconfigure"/>
     </keybind>
     <keybind key="A-Tab">
@@ -165,9 +165,12 @@
       <name>5</name>
     </names>
   </desktops>
-  <windowRules>
+<windowRules>
     <windowRule title="Attention">
       <action name="ToggleAlwaysOnTop"/>
+    </windowRule>
+    <windowRule identifier="xwaylandvideobridge">
+      <skipWindowSwitcher>yes</skipWindowSwitcher>
     </windowRule>
   </windowRules>
 </labwc_config>

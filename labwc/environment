@@ -9,7 +9,7 @@ export QT_QPA_PLATFORM=wayland
 export QT_QPA_PLATFORMTHEME=qt6ct
 export GDK_BACKEND=wayland,x11
 export GTK_THEME=Adwaita:dark
-export XDG_CURRENT_DESKTOP=labwc
+export XDG_CURRENT_DESKTOP=wlroots
 export XDG_SESSION_TYPE=wayland
 export XDG_MENU_PREFIX=arch-
 
@@ -23,3 +23,6 @@ export WLR_RENDER=vulkan
 # --- Optional Debugging ---
 XCURSOR_THEME=Bibata-Modern-Ice
 XCURSOR_SIZE=19
+
+
+TERMINAL=gnome-terminal
