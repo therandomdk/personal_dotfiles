@@ -1,8 +1,8 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 19, 
-  "spacing": 2,
+  "height": 28,
+  "spacing": 3,
   "autohide": true,
   "autohide-blocked": false,
   "exclusive": true,
@@ -19,9 +19,7 @@
     "custom/custom1",
     "custom/custom2"
   ],
-  "modules-center": [
-    "wlr/workspaces"
-  ],
+  "modules-center": [],
   "modules-right": [
     "wlr/taskbar",
     "idle_inhibitor",
@@ -34,7 +32,7 @@
   ],
 
   "custom/archicon": {
-    "format": "💻",
+    "format": " ",
     "on-click": "nwg-menu -va top -ha left",
     "tooltip": true
   },
@@ -47,12 +45,12 @@
     }
   },
   "cpu": {
-    "format": "{usage}% 🧠",
+    "format": "{usage}% ",
     "tooltip": true,
     "tooltip-format": "CPU Usage: {usage}%\nCores: {cores}"
   },
   "memory": {
-    "format": "{}% 𝐑𝐚𝐦",
+    "format": "{}% 󰍛",
     "tooltip": true,
     "tooltip-format": "RAM in use: {used} / {total} ({percentage}%)"
   },
@@ -65,17 +63,15 @@
     "format": "{temperatureC}°C {icon}",
     "tooltip": true,
     "tooltip-format": "Current Temp: {temperatureC}°C\nCritical if > 80°C",
-    "format-icons": [
-      ""
-    ]
+    "format-icons": [""]
   },
   "custom/custom1": {
-    "format": "🔥",
+    "format": "PERFORMANCE",
     "on-click": "gnome-terminal -- sh -c 'sudo tuned-adm profile throughput-performance && sudo envycontrol -s nvidia; echo Done; sleep 2'",
     "tooltip-format": "Performance Mode"
   },
   "custom/custom2": {
-    "format": "🔋",
+    "format": "BATTERY",
     "on-click": "gnome-terminal -- sh -c 'sudo tuned-adm profile powersave && sudo envycontrol -s integrated; echo Done; sleep 2'",
     "tooltip-format": "Power Save Mode"
   },
@@ -92,9 +88,7 @@
     "tooltip-format": "{name}",
     "on-click": "activate",
     "on-click-middle": "close",
-    "ignore-list": [
-      "rofi"
-    ]
+    "ignore-list": ["xwaylandvideobridge"]
   },
   "idle_inhibitor": {
     "format": "{icon}",
@@ -105,7 +99,7 @@
   },
   "pulseaudio/slider": {
     "format": "{volume}%",
-    "format-muted": "🔕 MUTE",
+    "format-muted": " ",
     "step": 5,
     "tooltip": false
   },
@@ -113,11 +107,7 @@
     "format": "{volume}% {icon}",
     "format-muted": " {format_source}",
     "format-icons": {
-      "default": [
-        "",
-        "",
-        ""
-      ]
+      "default": ["", "", ""]
     }
   },
   "network": {
@@ -145,7 +135,7 @@
     "tooltip": true
   },
   "tray": {
-    "icon-size": 20,
-    "spacing": 10
+    "icon-size": 16,
+    "spacing": 17
   }
 }

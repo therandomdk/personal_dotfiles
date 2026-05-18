@@ -3,18 +3,18 @@
   border: none;
   font-family: "JetBrainsMono Nerd Font";
   font-size: 12px;
-  min-height: 0px; /* Changed from 10px to allow smaller slider elements */
+  min-height: 0px;
 }
 
 window#waybar {
-  background: rgba(26, 26, 26, 0.6);
+  background: rgba(24, 24, 24, 0.92);
 }
 
 window#waybar.hidden {
   opacity: 0.4;
 }
 
-/* - General rules for visible modules -- */
+/* -- General rules for visible modules -- */
 #custom-archicon,
 #clock,
 #cpu,
@@ -32,17 +32,14 @@ window#waybar.hidden {
 #language,
 #tray {
   color: #FFFFFF;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 1px;
-  margin-right: 1px;
+  margin: 1px;
   padding-left: 7px;
   padding-right: 7px;
   transition: none;
   border-radius: 4px;
 }
 
-/* --- Added Slider Styling --- */
+/* -- Slider styling -- */
 scale trough {
   min-height: 4px;
   background-color: #333333;
@@ -53,56 +50,51 @@ scale slider {
   min-height: 8px;
   min-width: 8px;
   margin: -2px 0;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border-radius: 50%;
   box-shadow: none;
 }
-/* ---------------------------- */
 
-/* Specific edge spacing */
+/* -- Specific edge spacing -- */
 #custom-archicon {
-  margin-left: 3px;
+  margin-left: 1px;
 }
 
 #clock,
 #temperature,
 #custom-custom2,
 #language {
-  margin-right: 5px;
+  margin-right: 3px;
 }
 
-/* -- Specific styles -- */
-
-/* Modules left */
+/* -- Modules left -- */
 #custom-archicon {
-  font-size: 10px;
-  color: #FFFFFF;
-  background: #242424;
-  padding-right: 3px;
-  padding-left: 4px;
+  background-image: url('/home/ndoan/.config/waybar/Fedora_logo.svg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-width: 16px;
+  padding: 3px 2px;
+  margin: 3px 2px;
 }
 
-#clock, #cpu, #memory, #disk, #temperature {
-  background: #242424;
+#custom-custom1, 
+#custom-custom2 {
+  background: transparent;
 }
 
-/* Style for the new Performance/Power buttons */
-#custom-custom1, #custom-custom2 {
-  background: #242424;
-}
-
-/* Modules center */
+/* -- Modules center -- */
 #workspaces {
   background: rgba(0, 0, 0, 0.5);
-  margin: 5px 4px;
-  padding: 0px 6px;
-  border-radius: 5px;
+  margin: 3px 3px;
+  padding: 0 3px;
+  border-radius: 3px;
 }
 
 #workspaces button {
   color: #242424;
   background: transparent;
-  padding: 4px 4px;
+  padding: 2px 3px;
   transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -112,35 +104,36 @@ scale slider {
 
 #workspaces button.active {
   color: #242424;
-  text-shadow: 0 0 4px #242424;
+  text-shadow: 0 0 3px #242424;
 }
 
-/* Modules right */
+/* -- Modules right -- */
 #taskbar {
   background: transparent;
-  padding: 0px 3px;
-  margin: 6px 3px;
-  border-radius: 5px;
+  padding: 0 3px;
+  margin: 3px 3px;
+  border-radius: 3px;
 }
 
 #taskbar button {
-  padding: 0px 7px;
-  margin: 0px 1px;
+  padding: 0 3px;
+  margin: 0 3px;
   transition: background 0.3s ease;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
-#taskbar button.active, #taskbar button:hover {
+#taskbar button.active, 
+#taskbar button:hover {
   background: rgba(34, 36, 54, 0.5);
 }
 
 #idle_inhibitor {
-  background: #242424;
-  padding-right: 9px;
+  background: transparent;
+  padding-right: 3px;
 }
 
 #battery {
-  background: #242424;
+  background: transparent;
 }
 
 #battery.warning {
@@ -159,34 +152,33 @@ scale slider {
 #pulseaudio {
   min-width: 37px;
   color: #FFFFFF;
-  background: #242424;
+  background: transparent;
 }
 
 #pulseaudio-slider {
   color: #1A1826;
-  background: #242424;
+  background: transparent;
   min-width: 150px;
 }
 
 #network {
-  background: #242424;
-  padding-right: 20px;
+  background: transparent;
+  padding-right: 10px;
 }
 
 #language {
-  background: #242424;
+  background: transparent;
   padding-right: 15px;
 }
 
 #custom-power {
-  background: #242424;
+  background: transparent;
   color: #FFFFFF;
-  margin-right: 2px;
+  margin-right: 1px;
 }
 
-/* Specific tray style */
 #tray {
-  background: #242424;
+  background: transparent;
 }
 
 #tray > .passive {
@@ -197,7 +189,7 @@ scale slider {
   -gtk-icon-effect: highlight;
 }
 
-/* === Optional animation === */
+/* -- Animations -- */
 @keyframes blink {
   from {
     background-color: #242424;
