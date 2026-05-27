@@ -1,0 +1,211 @@
+/* Global rules */
+* {
+  border: none;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+  min-height: 0px;
+  margin: 0;
+  padding: 0;
+}
+
+window#waybar {
+  background: rgba(24, 24, 24, 0.92);
+}
+
+window#waybar.hidden {
+  opacity: 0.4;
+}
+
+window#waybar > box {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* General visible module rules */
+#custom-archicon,
+#custom-wattage,
+#clock,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#custom-custom1,
+#custom-custom2,
+#idle_inhibitor,
+#battery,
+#pulseaudio,
+#pulseaudio-slider,
+#network,
+#custom-power,
+#language,
+#tray {
+  color: #FFFFFF;
+  margin: 0px 1px;
+  padding: 0px 5px;
+  transition: background 0.2s ease;
+  border-radius: 3px;
+}
+
+/* Hover effects */
+#clock:hover,
+#custom-wattage:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#custom-custom1:hover,
+#custom-custom2:hover,
+#idle_inhibitor:hover,
+#battery:hover,
+#pulseaudio:hover,
+#pulseaudio-slider:hover,
+#network:hover,
+#custom-power:hover,
+#language:hover,
+#tray:hover {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Slider styling */
+scale trough {
+  min-height: 4px;
+  background-color: #333333;
+  border-radius: 1px;
+}
+
+scale slider {
+  min-height: 6px;
+  min-width: 6px;
+  margin: -1px 0;
+  background-color: #FFFFFF;
+  border-radius: 30%;
+  box-shadow: none;
+}
+
+/* Edge spacing */
+#custom-archicon {
+  margin-left: 2px;
+}
+
+#clock,
+#temperature,
+#custom-custom2,
+#language {
+  margin-right: 3px;
+}
+
+/* Left module specifics */
+#custom-archicon {
+  background-image: url('/home/ndoan/.config/waybar/Fedora_logo.svg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-width: 14px;
+  margin: 0px 2px;
+  padding: 0px;
+}
+
+#custom-wattage,
+#custom-custom1,
+#custom-custom2 {
+  background: transparent;
+}
+
+#custom-wattage {
+  min-width: 65px;
+}
+
+/* Right module specifics */
+#taskbar {
+  background: transparent;
+  padding: 0 2px;
+  margin: 0px 3px;
+  border-radius: 3px;
+}
+
+#taskbar button {
+  padding: 0 3px;
+  margin: 0 3px;
+  transition: background 0.3s ease;
+  border-radius: 3px;
+}
+
+#taskbar button.active,
+#taskbar button:hover {
+  background: rgba(34, 36, 54, 0.5);
+}
+
+#idle_inhibitor {
+  background: transparent;
+  padding-right: 13px;
+}
+
+#battery {
+  background: transparent;
+}
+
+#battery.warning {
+  color: #FFCC00;
+}
+
+#battery.critical {
+  color: #FF5555;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#pulseaudio {
+  min-width: 37px;
+  color: #FFFFFF;
+  background: transparent;
+}
+
+#pulseaudio-slider {
+  color: #1A1826;
+  background: transparent;
+  min-width: 120px;
+}
+
+#network {
+  background: transparent;
+  padding-right: 10px;
+}
+
+#language {
+  background: transparent;
+  padding-right: 15px;
+}
+
+#custom-power {
+  background: transparent;
+  color: #FFFFFF;
+  margin-right: 2px;
+}
+
+#tray {
+  background: transparent;
+  margin-right: 1px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* Animations */
+@keyframes blink {
+  from {
+    background-color: #242424;
+    color: #FF5555;
+  }
+  to {
+    background-color: #FF5555;
+    color: #FFFFFF;
+  }
+}
