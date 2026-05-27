@@ -3,6 +3,8 @@ export XKB_DEFAULT_LAYOUT=us
 export LANG=en_IN.UTF-8
 
 # --- Cursor ---
+export XCURSOR_THEME=Bibata-Modern-Ice
+export XCURSOR_SIZE=20
 
 # --- Toolkit & Desktop Identity ---
 export QT_QPA_PLATFORM=wayland
@@ -16,13 +18,7 @@ export XDG_MENU_PREFIX=arch-
 # --- Application Specific ---
 export MOZ_ENABLE_WAYLAND=1
 export _JAVA_AWT_WM_NONREPARENTING=1
+export TERMINAL=gnome-terminal
 
 # --- Performance ---
-export WLR_RENDER=vulkan
-
-# --- Optional Debugging ---
-XCURSOR_THEME=Bibata-Modern-Ice
-XCURSOR_SIZE=19
-
-
-TERMINAL=gnome-terminal
+export WLR_RENDERER=vulkan

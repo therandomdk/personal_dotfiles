@@ -1,32 +1,38 @@
-# Environment Variables
+# 1. Export Environment Variables
 export XDG_CURRENT_DESKTOP=wlroots
 export SCREENSHOT_PORTAL=wlr
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM="wayland;xcb"
 export SDL_VIDEODRIVER=wayland
 
-# Sync Environment to DBus and Systemd
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP MOZ_ENABLE_WAYLAND QT_QPA_PLATFORM SDL_VIDEODRIVER
+# 2. Sync to Systemd and DBus
+dbus-update-activation-environment --systemd \
+    WAYLAND_DISPLAY \
+    XDG_CURRENT_DESKTOP \
+    SCREENSHOT_PORTAL \
+    MOZ_ENABLE_WAYLAND \
+    QT_QPA_PLATFORM \
+    SDL_VIDEODRIVER
 
-# Portal Startup (Manual Bypass)
-# Kill any hanging instances first
+# 3. Reset Portals
+# Stops existing instances to prevent conflicts before re-launching
 systemctl --user stop xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-portal-gtk 2>/dev/null
-
-# Launch backends and main portal directly
 /usr/libexec/xdg-desktop-portal-wlr -r &
 /usr/libexec/xdg-desktop-portal-gtk -r &
 /usr/libexec/xdg-desktop-portal -r &
 
-# Background Services
-waybar &
-xsettingsd &
-nm-applet --indicator &
-blueman-applet &
-swaync &
-brightnessctl set 70% &
+# 4. Launch Core UI Services
+# Order matters: wallpaper first, then bar
 ~/.azotebg &
-/home/ndoan/.config/conky/start.sh
+sleep 2 && waybar &
+~/.azotebg &
 
-# Screen Sharing Bridge
-sleep 2
+# 5. Launch Background Services
+xsettingsd &
+swaync &
+blueman-applet &
+nm-applet --indicator &
+
+# 6. Hardware and Xwayland
+brightnessctl set 70% &
 xwaylandvideobridge &
