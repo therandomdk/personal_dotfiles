@@ -1,16 +1,17 @@
 {
+  "output": "eDP-1",
   "layer": "top",
   "position": "top",
-  "height": 28,
+  "height": 23,
   "spacing": 3,
   "autohide": true,
   "autohide-blocked": false,
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
-
   "modules-left": [
     "custom/archicon",
+    "custom/wattage",
     "clock",
     "cpu",
     "memory",
@@ -19,7 +20,6 @@
     "custom/custom1",
     "custom/custom2"
   ],
-  "modules-center": [],
   "modules-right": [
     "wlr/taskbar",
     "idle_inhibitor",
@@ -30,15 +30,19 @@
     "custom/power",
     "tray"
   ],
-
   "custom/archicon": {
-    "format": " ",
-    "on-click": "nwg-menu -va top -ha left",
-    "tooltip": true
+    "format": ".",
+    "on-click": "fuzzel --hide-prompt --minimal-lines",
+    "tooltip": false
   },
+  "custom/wattage": {
+    "exec": "paste /sys/class/power_supply/BAT1/voltage_now /sys/class/power_supply/BAT1/current_now | awk '{printf \"✝ %.2fW\", ($1 * $2) / 1e12}'",
+    "interval": 1,
+    "format": "{}"
+},
   "clock": {
     "timezone": "America/Los_Angeles",
-    "format": "{:%I:%M - %d/%m}",
+    "format": "{:%I:%M - %m/%d/%y}",
     "tooltip-format": "{calendar}",
     "calendar": {
       "mode": "month"
@@ -66,21 +70,10 @@
     "format-icons": [""]
   },
   "custom/custom1": {
-    "format": "PERFORMANCE",
-    "on-click": "gnome-terminal -- sh -c 'sudo tuned-adm profile throughput-performance && sudo envycontrol -s nvidia; echo Done; sleep 2'",
-    "tooltip-format": "Performance Mode"
+    "format": "CardWire",
+    "on-click": "pgrep -x cardwire-gui >/dev/null || cardwire-gui &",
+    "tooltip-format": "Cardwire"
   },
-  "custom/custom2": {
-    "format": "BATTERY",
-    "on-click": "gnome-terminal -- sh -c 'sudo tuned-adm profile powersave && sudo envycontrol -s integrated; echo Done; sleep 2'",
-    "tooltip-format": "Power Save Mode"
-  },
-
-  "wlr/workspaces": {
-    "format": "{name}",
-    "on-click": "activate"
-  },
-
   "wlr/taskbar": {
     "format": "{icon}",
     "all-outputs": true,
@@ -88,7 +81,12 @@
     "tooltip-format": "{name}",
     "on-click": "activate",
     "on-click-middle": "close",
-    "ignore-list": ["xwaylandvideobridge"]
+    "ignore-list": ["xwaylandvideobridge"],
+    "icon-theme": "Papirus-Dark",
+    "app_ids-mapping": {
+      "thorium-browser": "thorium-browser",
+      "thorium": "thorium-browser"
+    }
   },
   "idle_inhibitor": {
     "format": "{icon}",
@@ -104,6 +102,7 @@
     "tooltip": false
   },
   "pulseaudio": {
+    "on-click": "pavucontrol",
     "format": "{volume}% {icon}",
     "format-muted": " {format_source}",
     "format-icons": {
@@ -111,12 +110,12 @@
     }
   },
   "network": {
-    "format-wifi": "    {essid}",
+    "format-wifi": "     {essid}",
     "format-ethernet": "  {ifname}",
     "format-disconnected": " ",
     "tooltip-format": " {ifname} via {gwaddr}",
-    "on-click": "nm-connection-editor",
-    "max-length": 50
+    "on-click": "gnome-terminal --title=\"nmtui-terminal\" --geometry=50x20 -- sudo nmtui",
+    "max-length": 43
   },
   "custom/power": {
     "format": "",
@@ -124,6 +123,7 @@
     "tooltip": false
   },
   "battery": {
+    "bat": "BAT1",
     "states": {
       "warning": 50,
       "critical": 25
@@ -135,7 +135,7 @@
     "tooltip": true
   },
   "tray": {
-    "icon-size": 16,
-    "spacing": 17
+    "icon-size": 12,
+    "spacing": 9
   }
 }

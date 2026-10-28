@@ -4,6 +4,7 @@ export SCREENSHOT_PORTAL=wlr
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM="wayland;xcb"
 export SDL_VIDEODRIVER=wayland
+export WLR_DRM_DEVICES="/dev/dri/by-path/pci-0000:00:02.0-card"
 
 # 2. Sync to Systemd and DBus
 dbus-update-activation-environment --systemd \
@@ -22,8 +23,7 @@ systemctl --user stop xdg-desktop-portal xdg-desktop-portal-wlr xdg-desktop-port
 /usr/libexec/xdg-desktop-portal -r &
 
 # 4. Launch Core UI Services
-# Order matters: wallpaper first, then bar
-~/.azotebg &
+pkill -f nm-applet
 sleep 2 && waybar &
 ~/.azotebg &
 
@@ -31,8 +31,13 @@ sleep 2 && waybar &
 xsettingsd &
 swaync &
 blueman-applet &
-nm-applet --indicator &
+nm-applet &
 
 # 6. Hardware and Xwayland
 brightnessctl set 70% &
 xwaylandvideobridge &
+sleep 1 && wtype -M logo -k 1 -m logo
+wlr-randr --output HDMI-A-2 --left-of eDP-1 &
+cardwire-gui &
+
+

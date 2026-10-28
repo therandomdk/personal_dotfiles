@@ -1,8 +1,8 @@
 window {
-    background-color: rgba(0, 0, 0, 0.85);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: #ffffff;
-    border-radius: 8px;
+    border-radius: 0px;
     font-size: 13px;
     /* Added padding to prevent content from touching window edges */
     padding: 8px;
@@ -10,15 +10,15 @@ window {
 
 list {
     background: none;
-    border-radius: 5px;
+    border-radius: 0px;
     /* Reduced border width to avoid a bulky look */
-    border: 2px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     margin-right: 10px;
 }
 
 entry {
-    background-color: rgba(26, 26, 26, 0.9);
-    border-radius: 14px;
+    background-color: rgba(26, 26, 26, 1);
+    border-radius: 1px;
     /* Added internal spacing for text */
     padding: 4px 10px;
     border: 1px solid transparent;
@@ -27,19 +27,19 @@ entry {
 button {
     background: none;
     border: none;
-    min-height: 31px;
-    padding: 2px 4px;
+    min-height: 41px;
+    padding: 5px 5px;
     /* Ensured radius is consistent here */
-    border-radius: 5px;
+    border-radius: 1px;
 }
 
 button:hover {
-    background-color: rgba(54, 60, 89, 0.8);
+    background-color: rgba(50, 50, 50, 0.8);
 }
 
 /* Consolidated transition to one block with a natural speed */
 button, flowboxchild {
-    transition: background-color 150ms ease-in-out;
+    transition: background-color 250ms ease-in-out;
 }
 
 flowboxchild {

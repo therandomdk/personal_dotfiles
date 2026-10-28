@@ -1,0 +1,6 @@
+start_in_tray = true
+primary_click_action = "open-gui"
+primary_click_modes = [
+    "integrated",
+    "hybrid",
+]

@@ -1,9 +1,11 @@
-/* -- Global rules -- */
+/* Global rules */
 * {
   border: none;
   font-family: "JetBrainsMono Nerd Font";
-  font-size: 12px;
+  font-size: 14px;
   min-height: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 window#waybar {
@@ -14,8 +16,14 @@ window#waybar.hidden {
   opacity: 0.4;
 }
 
-/* -- General rules for visible modules -- */
+window#waybar > box {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* General visible module rules */
 #custom-archicon,
+#custom-wattage,
 #clock,
 #cpu,
 #memory,
@@ -32,32 +40,51 @@ window#waybar.hidden {
 #language,
 #tray {
   color: #FFFFFF;
-  margin: 1px;
-  padding-left: 7px;
-  padding-right: 7px;
-  transition: none;
-  border-radius: 4px;
+  margin: 0px 1px;
+  padding: 0px 5px;
+  transition: background 0.2s ease;
+  border-radius: 3px;
 }
 
-/* -- Slider styling -- */
+/* Hover effects */
+#clock:hover,
+#custom-wattage:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#custom-custom1:hover,
+#custom-custom2:hover,
+#idle_inhibitor:hover,
+#battery:hover,
+#pulseaudio:hover,
+#pulseaudio-slider:hover,
+#network:hover,
+#custom-power:hover,
+#language:hover,
+#tray:hover {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Slider styling */
 scale trough {
   min-height: 4px;
   background-color: #333333;
-  border-radius: 5px;
+  border-radius: 1px;
 }
 
 scale slider {
-  min-height: 8px;
-  min-width: 8px;
-  margin: -2px 0;
+  min-height: 6px;
+  min-width: 6px;
+  margin: -1px 0;
   background-color: #FFFFFF;
-  border-radius: 50%;
+  border-radius: 30%;
   box-shadow: none;
 }
 
-/* -- Specific edge spacing -- */
+/* Edge spacing */
 #custom-archicon {
-  margin-left: 1px;
+  margin-left: 2px;
 }
 
 #clock,
@@ -67,51 +94,32 @@ scale slider {
   margin-right: 3px;
 }
 
-/* -- Modules left -- */
+/* Left module specifics */
 #custom-archicon {
   background-image: url('/home/ndoan/.config/waybar/Fedora_logo.svg.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  min-width: 16px;
-  padding: 3px 2px;
-  margin: 3px 2px;
+  min-width: 14px;
+  margin: 0px 2px;
+  padding: 0px;
 }
 
-#custom-custom1, 
+#custom-wattage,
+#custom-custom1,
 #custom-custom2 {
   background: transparent;
 }
 
-/* -- Modules center -- */
-#workspaces {
-  background: rgba(0, 0, 0, 0.5);
-  margin: 3px 3px;
-  padding: 0 3px;
-  border-radius: 3px;
+#custom-wattage {
+  min-width: 65px;
 }
 
-#workspaces button {
-  color: #242424;
-  background: transparent;
-  padding: 2px 3px;
-  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
-}
-
-#workspaces button.occupied {
-  color: #242424;
-}
-
-#workspaces button.active {
-  color: #242424;
-  text-shadow: 0 0 3px #242424;
-}
-
-/* -- Modules right -- */
+/* Right module specifics */
 #taskbar {
   background: transparent;
-  padding: 0 3px;
-  margin: 3px 3px;
+  padding: 0 2px;
+  margin: 0px 3px;
   border-radius: 3px;
 }
 
@@ -122,14 +130,14 @@ scale slider {
   border-radius: 3px;
 }
 
-#taskbar button.active, 
+#taskbar button.active,
 #taskbar button:hover {
   background: rgba(34, 36, 54, 0.5);
 }
 
 #idle_inhibitor {
   background: transparent;
-  padding-right: 3px;
+  padding-right: 13px;
 }
 
 #battery {
@@ -143,7 +151,7 @@ scale slider {
 #battery.critical {
   color: #FF5555;
   animation-name: blink;
-  animation-duration: 0.5s;
+  animation-duration: 1s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -158,7 +166,7 @@ scale slider {
 #pulseaudio-slider {
   color: #1A1826;
   background: transparent;
-  min-width: 150px;
+  min-width: 120px;
 }
 
 #network {
@@ -174,11 +182,12 @@ scale slider {
 #custom-power {
   background: transparent;
   color: #FFFFFF;
-  margin-right: 1px;
+  margin-right: 2px;
 }
 
 #tray {
   background: transparent;
+  margin-right: 1px;
 }
 
 #tray > .passive {
@@ -189,7 +198,7 @@ scale slider {
   -gtk-icon-effect: highlight;
 }
 
-/* -- Animations -- */
+/* Animations */
 @keyframes blink {
   from {
     background-color: #242424;

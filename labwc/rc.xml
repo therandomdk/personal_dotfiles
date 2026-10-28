@@ -44,7 +44,7 @@
   <keyboard>
     <default/>
     <keybind key="Super_L" onRelease="yes">
-      <action name="Execute" command="nwg-menu -va top -ha left"/>
+      <action name="Execute" command="fuzzel --hide-prompt --minimal-lines"/>
     </keybind>
     <keybind key="W-Return">
       <action name="Execute" command="gnome-terminal"/>
@@ -88,16 +88,36 @@
     <keybind key="W-Down">
       <action name="SnapToEdge" direction="down"/>
     </keybind>
-    <keybind key="W-1"><action name="GoToDesktop" to="1"/></keybind>
-    <keybind key="W-2"><action name="GoToDesktop" to="2"/></keybind>
-    <keybind key="W-3"><action name="GoToDesktop" to="3"/></keybind>
-    <keybind key="W-4"><action name="GoToDesktop" to="4"/></keybind>
-    <keybind key="W-5"><action name="GoToDesktop" to="5"/></keybind>
-    <keybind key="W-S-1"><action name="SendToDesktop" to="1"/></keybind>
-    <keybind key="W-S-2"><action name="SendToDesktop" to="2"/></keybind>
-    <keybind key="W-S-3"><action name="SendToDesktop" to="3"/></keybind>
-    <keybind key="W-S-4"><action name="SendToDesktop" to="4"/></keybind>
-    <keybind key="W-S-5"><action name="SendToDesktop" to="5"/></keybind>
+    <keybind key="W-1">
+      <action name="GoToDesktop" to="1"/>
+    </keybind>
+    <keybind key="W-2">
+      <action name="GoToDesktop" to="2"/>
+    </keybind>
+    <keybind key="W-3">
+      <action name="GoToDesktop" to="3"/>
+    </keybind>
+    <keybind key="W-4">
+      <action name="GoToDesktop" to="4"/>
+    </keybind>
+    <keybind key="W-5">
+      <action name="GoToDesktop" to="5"/>
+    </keybind>
+    <keybind key="W-S-1">
+      <action name="SendToDesktop" to="1"/>
+    </keybind>
+    <keybind key="W-S-2">
+      <action name="SendToDesktop" to="2"/>
+    </keybind>
+    <keybind key="W-S-3">
+      <action name="SendToDesktop" to="3"/>
+    </keybind>
+    <keybind key="W-S-4">
+      <action name="SendToDesktop" to="4"/>
+    </keybind>
+    <keybind key="W-S-5">
+      <action name="SendToDesktop" to="5"/>
+    </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute" command="pactl set-sink-volume @DEFAULT_SINK@ +4%"/>
     </keybind>
@@ -114,10 +134,10 @@
       <action name="Execute" command="brightnessctl set 4%-"/>
     </keybind>
     <keybind key="Print">
-      <action name="Execute" command="sh -c 'grimshot save screen /home/ndoan/Pictures/$(date +%Y_%m_%d_%H%M%S).png | wl-copy'"/>
+      <action name="Execute" command="sh -c 'grim - | swappy -f -'"/>
     </keybind>
     <keybind key="S-Print">
-      <action name="Execute" command="sh -c 'grimshot save area /home/ndoan/Pictures/$(date +%Y_%m_%d_%H%M%S).png | wl-copy'"/>
+      <action name="Execute" command="sh -c 'grim -g &quot;$(slurp)&quot; - | swappy -f -'"/>
     </keybind>
     <numlock>on</numlock>
   </keyboard>
@@ -130,6 +150,7 @@
     </context>
   </mouse>
   <desktops number="5">
+    <initial>5</initial>
     <names>
       <name>1</name>
       <name>2</name>
